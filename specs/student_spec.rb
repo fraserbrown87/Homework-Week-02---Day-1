@@ -51,10 +51,16 @@ class TestTeam < MiniTest::Test
     assert_equal("Neil Lennon", sports_team.coach)
   end
 
-  def test_set_coach_name
-    sports_team = Team.new('Hibernian', players = ["John McGinn", "Simon Murray", "Anthony Stokes"], "Neil Lennon" )
-    sports_team.set_coach_name("Fraser Brown")
-    assert_equal("Fraser Brown", sports_team.coach)
+  # def test_set_coach_name
+  #   sports_team = Team.new('Hibernian', players = ["John McGinn", "Simon Murray", "Anthony Stokes"], "Neil Lennon" )
+  #   sports_team.set_coach_name("Fraser Brown")
+  #   assert_equal("Fraser Brown", sports_team.coach)
+  # end
+
+  def test_add_new_player
+    sports_team = Team.new('Hibernian', ["John McGinn", "Simon Murray", "Anthony Stokes"], "Neil Lennon" )
+    sports_team.new_player("Marvin Bartley")
+    assert_equal(["John McGinn", "Simon Murray", "Anthony Stokes", "Marvin Bartley"], sports_team.players)
   end
 
 end
