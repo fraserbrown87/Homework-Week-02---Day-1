@@ -1,24 +1,12 @@
 class Team
   attr_accessor :team_name, :players, :coach
 
-  def initialize(input_team_name, input_players, input_coach)
-    @team_name = input_team_name
-    @players = input_players
-    @coach = input_coach
+  def initialize(team_name, players, coach)
+    @team_name = team_name
+    @players = players
+    @coach = coach
   end
 
-  def new_player(player)
-    @players << player
-    return players.count
-  end
-
-  def check_players
-    if (@players == 'business')
-      @amount -= 50
-    elsif (@type == 'personal')
-      @amount -= 10
-    end
-  end
   def team_name
     return @team_name
   end
@@ -33,5 +21,14 @@ class Team
 
   def set_coach_name(coach)
     @coach = coach
+  end
+
+  def new_player(player)
+    @players << player
+  end
+
+  def check_player(player)
+    result = @players.include?(player)
+    return result
   end
 end
